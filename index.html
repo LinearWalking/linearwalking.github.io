@@ -81,7 +81,7 @@
               <div class="publication-links">
                 <!-- Arxiv PDF link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                  <a href="https://arxiv.org/pdf/5858615.pdf" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -91,7 +91,7 @@
                 </span>
   
                 <!-- Supplementary PDF link -->
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -99,11 +99,11 @@
                     </span>
                     <span>Supplementary</span>
                   </a>
-                </span>
+                </span> -->
   
                 <!-- Github link -->
                 <span class="link-block">
-                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                  <a href="https://github.com/jrapudg/RTWholeBodyMPPI" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -114,7 +114,7 @@
   
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/5858615" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -131,13 +131,30 @@
   </section>
   
 
-
-<!-- Teaser video-->
+<!-- Teaser image -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <figure class="image">
+        <img src="static/images/teaser.png" alt="Teaser Image" id="teaser-image" height="100%">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        A Unitree Go1 robot pushing a box to a desired location with
+MPPI on hardware (top row) and corresponding MuJoCo simulation states
+(bottom row) on a single sequence. Contact-rich behaviors like body pushes
+and leg kicks emerge in real-time without manual pre-specification or offline
+policy training.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video>
@@ -146,7 +163,7 @@
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -173,30 +190,42 @@
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/mppi_overview.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          System diagram for deploying the MPPI policy on a Unitree Go1 robot. Joint target controls (u) are sampled at the evenly distributed knot points
+(black dots) and represented as a cubic spline over the planning horizon. A cost from each sample is evaluated based on the user-specified goal (yellow
+ball) and cost function. The first control from the control sequence with the lowest total cost (opaque orange line) is applied to the robot and repeated
+in a receding-horizon fashion. The robot’s state is estimated using an EKF from motion-captured position and orientation, robot onboard IMU, and joint
+encoder measurements.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/walking_overlay.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
+          Go1 robot walking in a clockwise hexagon trajectory under small
+to moderate model mismatch and external disturbance. More transparent
+robots represent earlier keyframes.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/climb_box.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-         Third image description.
+          Keyframes from the Unitree Go1 robot climbing up and down a box of its own height with the MPPI policy on hardware (top row) and
+          corresponding MuJoCo states (bottom row). The robot is tasked to reach the consecutive goals (yellow spheres) specified in the task.
        </h2>
      </div>
      <div class="item">
       <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <img src="static/images/box_push.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
-        Fourth image description.
+        Top-down view of real-world box trajectories (magenta and grey
+lines) from 10 trials of the Go1 robot pushing the box (black square) into the
+goal area (dashed circle) that is placed in front (left) and front-right (right)
+of the original box position. More transparent boxes represent earlier in the
+trajectory. Magenta lines represent runs where the box successfully reaches
+the target area while the grey lines indicate otherwise.
       </h2>
     </div>
   </div>
@@ -209,49 +238,49 @@
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
+      Paper video.
       <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
           <div class="publication-video">
-            <!-- Youtube embed code here -->
+            Youtube embed code here
             <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
+            Your video file here
             <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
+            Your video file here
             <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
+            Your video file here
             <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
@@ -259,16 +288,13 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End video carousel -->
 
 
 
-
-
-
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -278,7 +304,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
