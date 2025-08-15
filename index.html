@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta property="og:title" content="Whole-Body MPPI: Sampling-based Control for Legged Robots">
-  <meta property="og:description" content="Hardware and simulation results of a Whole-Body MPPI controller for quadrupeds.">
-  <meta property="og:url" content="https://whole-body-mppi.github.io/"/>
+  <meta property="og:title" content="Linear Walking: The Surprising Effectiveness of Linear Models for Whole-Body Model-Predictive Control">
+  <meta property="og:description" content="Hardware and simulation results of a Convex-MPC controller for legged robots.">
+  <meta property="og:url" content="https://linear-walking.github.io/"/>
   <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <meta name="twitter:title" content="Linear Walking: The Surprising Effectiveness of Linear Models for Whole-Body Model-Predictive Control">
+  <meta name="twitter:description" content="Hardware and simulation results of a Convex-MPC controller for legged robots.">
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="keywords" content="robotics, quadruped, legged robots, control, sampling-based control, model predictive control, MPPI, whole-body control, locomotion, trajectory optimization, Go1, Unitree, hardware experiments, Gazebo simulation, MuJoCo, reinforcement learning, trajectory tracking">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Whole-Body MPPI</title>
+  <title>Linear Walking: The Surprising Effectiveness of Linear Models for Whole-Body Model-Predictive Control</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -43,33 +43,42 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Whole-Body MPPI: Real-Time Whole-Body Control of Legged Robots with Model-Predictive Path Integral Control</h1>
+          <h1 class="title is-1 publication-title">Linear Walking: The Surprising Effectiveness of Linear Models for Whole-Body Model-Predictive Control (under construction)</h1>
           <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.ri.cmu.edu/ri-people/arun-bishop/" target="_blank">Arun Bishop</a></span>,
             <span class="author-block"><a href="https://jrapudg.github.io/" target="_blank">Juan Alvarez-Padilla</a></span>,
-            <span class="author-block"><a href="https://johnzhang3.github.io" target="_blank">John Z. Zhang</a></span>,
-            <span class="author-block"><a href="https://sites.google.com/view/sofiakwok/" target="_blank">Sofia Kwok</a></span>,
+            <span class="author-block">Sam Schoedel</span>,
+            <span class="author-block">Ibrahima Sory Sow</span>,
+            <span class="author-block">Juee Chandrachud</span>,
+            <span class="author-block">Sheitej Sharma</span>,
+            <span class="author-block">Will Kraus</span>,
+            <span class="author-block">Beomyeong Park</span>,
+            <span class="author-block">Robert J. Griffin</span>,
             <span class="author-block"><a href="https://www.ri.cmu.edu/ri-faculty/john-m-dolan/" target="_blank">John M. Dolan</a></span>, and 
             <span class="author-block"><a href="https://rexlab.ri.cmu.edu/" target="_blank">Zachary Manchester</a></span>
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Carnegie Mellon University<br>IEEE International Conference on Robotics and Automation (ICRA) 2025</span>
+            <span class="author-block">Carnegie Mellon University</span>,
+            <span class="author-block">Florida Institute for Human and Machine Cognition</span>
+            <br>
+            <span class="author-block">Humanoids 2025</span>
           </div>
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2409.10469" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://linearwalking.github.io/" target="_blank" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/jrapudg/RTWholeBodyMPPI" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://linearwalking.github.io/" target="_blank" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="http://arxiv.org/abs/2409.10469" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://linearwalking.github.io/" target="_blank" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
@@ -82,7 +91,6 @@
   </div>
 </section>
 
-<!-- TL;DR, Overview, and MPPI Explanation Section -->
 <section class="section" style="background-color: #f0f8ff;">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -90,14 +98,14 @@
         <h2 class="title is-3">TL;DR</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first successful deployment of a whole-body sampling-based MPC system on a real-world quadruped robot. Our approach enables real-time, contact-rich locomotion and manipulation using a single control policy derived from Model-Predictive Path Integral (MPPI) control. Demonstrations include box pushing, box climbing, and robust walking over rough terrain.
+            When do locomotion controllers require reasoning about nonlinearities? In this work, we show that a whole-body model-predictive controller using a simple linear time-invariant approximation of the whole-body dynamics is able to execute basic locomotion tasks on complex legged robots. The formulation requires no online nonlinear dynamics evaluations or matrix inversions. We demonstrate walking, disturbance rejection, and even navigation to a goal position without a separate footstep planner on a quadrupedal robot. In addition, we demonstrate dynamic walking on a hydraulic humanoid, a robot with significant limb inertia, complex actuator dynamics, and large sim-to-real gap.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Teaser video-->
+<!-- 
 <section class="hero teaser" style="background-color: #f0f8ff;">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -107,10 +115,10 @@
       </video>
     </div>
   </div>
-</section>
-<!-- End teaser video -->
+</section> -->
 
 
+<!-- 
 <section class="section" style="background-color: #f9f9f9;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -173,7 +181,7 @@
   </div>
 </section>
 
-<!-- Teaser image -->
+
 <section class="hero teaser" style="background-color: #4a4a4a; color: white; padding: 1rem 0;">
   <div class="container is-max-desktop" style="margin-top: 1rem">
     <div class="hero-body">
@@ -186,16 +194,14 @@
     </div>
   </div>
 </section>
-<!-- End teaser image -->
 
-<!-- Hardware Experiments Section -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.5rem;">Hardware Experiments</h2>
   </div>
 </section>
 
-<!-- Teaser video-->
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -209,9 +215,7 @@
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
-<!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -225,9 +229,7 @@
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
-<!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -260,13 +262,12 @@
   </div>
 </section>
 
-<!-- Image carousel -->
+
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <!-- Your image here -->
         <img src="static/images/mppi_overview.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           System diagram for deploying the MPPI policy on a Unitree Go1 robot. Joint target controls (u) are sampled at the evenly distributed knot points
@@ -276,23 +277,20 @@ in a receding-horizon fashion. The robot’s state is estimated using an EKF fro
 encoder measurements.
         </h2>
       </div>
-      <!-- <div class="item">
         <img src="static/images/walking_overlay.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Go1 robot walking in a clockwise hexagon trajectory under small
 to moderate model mismatch and external disturbance. More transparent
 robots represent earlier keyframes.
         </h2>
-      </div> -->
-      <!-- <div class="item">
+      </div> 
         <img src="static/images/climb_box.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Keyframes from the Unitree Go1 robot climbing up and down a box of its own height with the MPPI policy on hardware (top row) and
           corresponding MuJoCo states (bottom row). The robot is tasked to reach the consecutive goals (yellow spheres) specified in the task.
        </h2>
-     </div> -->
+     </div>
      <div class="item">
-      <!-- Your image here -->
       <img src="static/images/box_push.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Top-down view of real-world box trajectories (magenta and grey
@@ -306,12 +304,8 @@ the target area while the grey lines indicate otherwise.
   </div>
 </div>
 </div>
-</section>
-<!-- End image carousel -->
-
-
-<!-- Youtube video -->
-<!-- <section class="hero is-small is-light">
+</section> 
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       Paper video.
@@ -327,28 +321,9 @@ the target area while the grey lines indicate otherwise.
       </div>
     </div>
   </div>
-</section> -->
-<!-- End youtube video -->
+</section>
 
 
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-<!--BibTeX citation -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -360,9 +335,8 @@ the target area while the grey lines indicate otherwise.
       year={2025},
     }</code></pre>
   </div>
-</section>
+</section> 
 
-<!--End BibTex citation -->
 
 
   <footer class="footer">
@@ -383,11 +357,6 @@ the target area while the grey lines indicate otherwise.
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
 
   </body>
   </html>
