@@ -127,6 +127,62 @@
   </div>
 </section>
 
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item has-text-centered">
+        <!-- Your image here -->
+        <img src="static/images/nadia_walk.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          The hydraulic humanoid Nadia walking forward over multiple steps using our convex MPC formulation with linear
+          time-invariant dynamics constraints. The gait has a stride length of 30 cm, a swing phase of 0.6 s and a double support
+          phase of 0.3 s.
+        </h2>
+      </div>
+      <div class="item has-text-centered">
+      <!-- Your image here -->
+      <img src="static/images/inplace_figure.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Top-down view of two perturbations applied to the
+Unitree Go2 while stepping in place. The robot maintains
+contact with the ground without slipping and return to its
+original location.
+      </h2>
+    </div>
+      <div class="item has-text-centered">
+        <img src="static/images/home_figure_5.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          A Unitree Go2 robot starts from 10 initial conditions
+with yaw from 5 to 90° and displacements from 0.1 to 1.7 m.
+Transparent overlays show keyframes starting with 90° yaw
+and 1.3 m displacement. Our controller is able to return to
+the initial position without assistance from a footstep planner.
+        </h2>
+      </div>
+      <div class="item has-text-centered">
+        <img src="static/images/box_figure_3.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Keyframes of a Unitree Go2 robot stepping onto
+a 24 cm box. The robot tracks a trajectory with up to
+60 degrees joint deviation and 10 degrees pitch deviation
+from the linearization pose, with the green dashed skeleton
+showing the linearization pose.
+     </div>
+     <div class="item has-text-centered">
+        <img src="static/images/nadia_tracking.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        Foot and center-of-mass trajectories across six humanoid walking trials (black) over the desired foot placement
+positions and center of mass trajectory (blue, dashed). Our controller is able to track the trajectory with minor deviations
+despite large modeling errors.
+     </div>
+  </div>
+</div>
+</div>
+</section>
+
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
@@ -143,6 +199,7 @@
     </div>
   </div>
 </section>
+
 <!-- 
 <section class="hero teaser" style="background-color: #f0f8ff;">
   <div class="container is-max-desktop">
@@ -153,9 +210,8 @@
       </video>
     </div>
   </div>
-</section> -->
+</section> 
 
-<!--
 <section class="section" style="background-color: #f9f9f9;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -297,63 +353,20 @@
     </div>
   </div>
 </section>
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <img src="static/images/mppi_overview.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          System diagram for deploying the MPPI policy on a Unitree Go1 robot. Joint target controls (u) are sampled at the evenly distributed knot points
-(black dots) and represented as a cubic spline over the planning horizon. A cost from each sample is evaluated based on the user-specified goal (yellow
-ball) and cost function. The first control from the control sequence with the lowest total cost (opaque orange line) is applied to the robot and repeated
-in a receding-horizon fashion. The robot’s state is estimated using an EKF from motion-captured position and orientation, robot onboard IMU, and joint
-encoder measurements.
-        </h2>
-      </div>
-        <img src="static/images/walking_overlay.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Go1 robot walking in a clockwise hexagon trajectory under small
-to moderate model mismatch and external disturbance. More transparent
-robots represent earlier keyframes.
-        </h2>
-      </div> 
-        <img src="static/images/climb_box.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Keyframes from the Unitree Go1 robot climbing up and down a box of its own height with the MPPI policy on hardware (top row) and
-          corresponding MuJoCo states (bottom row). The robot is tasked to reach the consecutive goals (yellow spheres) specified in the task.
-       </h2>
-     </div>
-     <div class="item">
-      <img src="static/images/box_push.png" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Top-down view of real-world box trajectories (magenta and grey
-lines) from 10 trials of the Go1 robot pushing the box (black square) into the
-goal area (dashed circle) that is placed in front (left) and front-right (right)
-of the original box position. More transparent boxes represent earlier in the
-trajectory. Magenta lines represent runs where the box successfully reaches
-the target area while the grey lines indicate otherwise.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section> 
+-->
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{alvarez2025realtime,
-      title={Real-Time Whole-Body Control of Legged Robots with Model-Predictive Path Integral Control},
-      author={Alvarez-Padilla, Juan and Zhang, John Z. and Kwok, Sofia and Dolan, John M. and Manchester, Zachary},
-      url = {https://arxiv.org/abs/2409.10469},
-      booktitle = {IEEE International Conference on Robotics and Automation},
+    <pre><code>@inproceedings{bishop2025linearwalking,
+      title={The Surprising Effectiveness of Linear Models for Whole-Body Model-Predictive Control},
+      author={Bishop, Arun and Alvarez-Padilla, Juan and Schoedel, Sam and Sow, Ibrahima S. and Chandrachud, Juee and Sharma, Sheitej and Kraus, Will and Park, Beomyeong and Griffin, Robert J.},
+      url = {TBD},
+      booktitle = {IEEE International Conference on Humanoid Robots},
       year={2025},
     }</code></pre>
   </div>
 </section> 
-
 
 
   <footer class="footer">
